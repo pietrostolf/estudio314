@@ -114,6 +114,7 @@ section > h2 { font-size: var(--t-titulo); max-width: 16ch; }
 .natal-datas strong { display: block; font-size: var(--t-gigante); letter-spacing: -0.05em; line-height: .9; font-variant-numeric: tabular-nums; margin-bottom: 12px;
   -webkit-mask: var(--camadas) 0 0 / 100% 0.09em repeat; mask: var(--camadas) 0 0 / 100% 0.09em repeat; }
 .natal > p { max-width: 52ch; }
+.natal > p + p { margin-top: 16px; }
 @media (min-width: 720px) { .natal-datas { grid-template-columns: repeat(3, auto); justify-content: start; column-gap: 8vw; } .natal-datas strong { font-size: clamp(72px, 9vw, 150px); } }
 
 /* ---------- calculadora ---------- */

@@ -9,6 +9,8 @@ const WHATS = "5547991067565";
 
 // Prazos do Natal (a confirmar com o Pietro). Aparecem na home, nas páginas de Natal e no carrinho.
 const NATAL = { pac: "7/12", sedex: "14/12", retirada: "22/12" };
+// Carimbo personalizado: 3 dias úteis antes, por causa da prévia (regra do Pietro, 24/11/2026).
+const NATAL_CARIMBO = { pac: "2/12", sedex: "9/12", retirada: "17/12" };
 const PRAZO_PADRAO = 3; // dias úteis para produzir quando o produto não diz
 
 // Fotos de cada produto (o catálogo não tem): principal, extras e a foto de cada variante.
@@ -121,7 +123,7 @@ const CARRINHO = `
     <label class="campo" data-campo-cep>CEP para calcular o frete <input name="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" spellcheck="false" placeholder="89200-000"></label>
     <label class="campo">Seu nome <input name="nome" autocomplete="name"></label>
     <button class="botao" type="submit">Fechar pedido no WhatsApp</button>
-    <p class="nota">Abre o WhatsApp com o pedido escrito. Frete e pagamento a gente combina por lá. Natal: Correios PAC até ${NATAL.pac}, SEDEX até ${NATAL.sedex}, retirada até ${NATAL.retirada}.</p>
+    <p class="nota">Abre o WhatsApp com o pedido escrito. Frete e pagamento a gente combina por lá. Natal: Correios PAC até ${NATAL.pac}, SEDEX até ${NATAL.sedex}, retirada até ${NATAL.retirada}. Carimbo personalizado: PAC até ${NATAL_CARIMBO.pac}, SEDEX até ${NATAL_CARIMBO.sedex}, retirada até ${NATAL_CARIMBO.retirada}.</p>
   </form>
 </dialog>`;
 
@@ -176,6 +178,7 @@ const natalBand = `
     <p><strong>${NATAL.sedex}</strong> último dia com SEDEX</p>
     <p><strong>${NATAL.retirada}</strong> último dia para retirar em Joinville</p>
   </div>
+  <p>Carimbo personalizado, por causa da prévia: PAC até ${NATAL_CARIMBO.pac}, SEDEX até ${NATAL_CARIMBO.sedex}, retirada até ${NATAL_CARIMBO.retirada}.</p>
   <p>Cada peça é impressa depois do pedido. A produção leva cerca de ${PRAZO_PADRAO} dias úteis; as datas já contam com isso.</p>
 </section>`;
 
@@ -202,7 +205,7 @@ const passos = [
 
 const perguntas = [
   ["Como faço o pedido?", "Escolha as peças, abra o carrinho e toque em “Fechar pedido no WhatsApp”. A mensagem vai pronta com os itens e o total; respondemos com o frete e a forma de pagamento."],
-  ["Quanto tempo demora?", `Cada peça é impressa depois do pedido: cerca de ${PRAZO_PADRAO} dias úteis para produzir, mais o tempo dos Correios. Para o Natal, peça até ${NATAL.pac} (PAC) ou ${NATAL.sedex} (SEDEX).`],
+  ["Quanto tempo demora?", `Cada peça é impressa depois do pedido: cerca de ${PRAZO_PADRAO} dias úteis para produzir, mais o tempo dos Correios. Para o Natal, peça até ${NATAL.pac} (PAC) ou ${NATAL.sedex} (SEDEX); o carimbo personalizado, até ${NATAL_CARIMBO.pac} (PAC) ou ${NATAL_CARIMBO.sedex} (SEDEX).`],
   ["Serve para argila e cerâmica fria?", "Serve para argila, cerâmica fria, biscuit e massinha. As peças são de PLA: lave com água fria e sabão neutro. Não vão ao forno nem à lava-louças, porque o PLA amolece perto de 55 °C."],
   ["Por que o molde é maior que a peça?", `A argila encolhe ao secar e queimar. Nossos moldes já vêm 13,6% maiores, para a retração de 12% da maioria das argilas. Para outra argila, use a <a href="/calculadora-de-encolhimento/">calculadora</a>.`],
   ["Como mando o desenho do carimbo?", "Depois do pedido, mande a logo, a assinatura ou o desenho pelo WhatsApp. Mostramos a prévia espelhada e a marca no barro antes de imprimir. O traço precisa ter pelo menos 0,4 mm."],
@@ -305,7 +308,7 @@ ${cabecalhoSimples}
     <div class="produto-descricao">
       <h2>Como é</h2>
       <p>${esc(p.descricao)}</p>
-      <p>Produção: ${prazo} dias úteis depois do pedido, mais o frete. ${p.natal ? `Para o Natal: Correios PAC até ${NATAL.pac}, SEDEX até ${NATAL.sedex}, retirada em Joinville até ${NATAL.retirada}.` : ""}</p>
+      <p>Produção: ${prazo} dias úteis depois do pedido, mais o frete. ${p.natal ? `Para o Natal: Correios PAC até ${NATAL.pac}, SEDEX até ${NATAL.sedex}, retirada em Joinville até ${NATAL.retirada}.` : ""}${p.personalizado ? `Para o Natal, por causa da prévia: Correios PAC até ${NATAL_CARIMBO.pac}, SEDEX até ${NATAL_CARIMBO.sedex}, retirada em Joinville até ${NATAL_CARIMBO.retirada}.` : ""}</p>
       ${p.personalizado ? "<p>Depois do pedido, mande a logo ou o desenho pelo WhatsApp. O preço final depende do tamanho do desenho e vai na prévia.</p>" : ""}
     </div>
   </div>
