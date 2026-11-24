@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de encolhimento da argila | Estúdio314</title>
+<meta name="description" content="Calcule o tamanho do molde a partir do tamanho final da peça e do encolhimento da sua argila. Grátis, direto no navegador.">
+<link rel="canonical" href="https://estudio314.com.br/calculadora-de-encolhimento/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Estúdio314">
+<meta property="og:title" content="Calculadora de encolhimento da argila | Estúdio314">
+<meta property="og:description" content="Calcule o tamanho do molde a partir do tamanho final da peça e do encolhimento da sua argila. Grátis, direto no navegador.">
+<meta property="og:url" content="https://estudio314.com.br/calculadora-de-encolhimento/">
+<meta property="og:image" content="https://estudio314.com.br/img/produtos/kit-natal-resultado-mesa.webp">
+<meta name="theme-color" content="#3D0A12">
+<link rel="icon" href="/icone.svg" type="image/svg+xml">
+<link rel="preload" href="/fontes/AlbertSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/css/loja.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de encolhimento da argila","applicationCategory":"UtilitiesApplication","operatingSystem":"Qualquer navegador","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"url":"https://estudio314.com.br/calculadora-de-encolhimento/"}</script>
+<script src="/js/catalogo.js" defer></script>
+<script src="/js/loja.js" type="module"></script>
+</head>
+<body class="pagina-calc">
+<a class="pular" href="#calculadora">Pular para a calculadora</a>
+<header class="barra"><a class="marca" href="/" aria-label="Estúdio314, página inicial"><img src="/img/marca/estudio314-horizontal-sangue.svg" alt="" width="151" height="45"></a><nav aria-label="Principal"><a href="/#pecas">Peças</a><a href="/calculadora-de-encolhimento/">Calculadora</a><a href="/#perguntas">Dúvidas</a></nav><button class="botao-carrinho" type="button" data-abrir-carrinho aria-haspopup="dialog">Carrinho <span data-contagem>(0)</span></button></header>
+<main>
+<section class="calc" id="calculadora" aria-labelledby="calc-titulo">
+  <div class="calc-texto">
+    <h1 id="calc-titulo">Quanto a argila encolhe?</h1>
+    <p>A argila perde de 5 a 16% do tamanho entre o molde e a peça queimada. Diga o tamanho que a peça precisa ter no fim e o encolhimento da sua argila: a conta mostra o tamanho do molde.</p>
+    <p class="calc-dica">Não sabe o encolhimento? Risque uma linha de 100 mm na placa crua e meça depois da queima: se deu 88 mm, a argila encolhe 12%. Em geral: terracota 5 a 8%, grés 10 a 13%, porcelana 12 a 16%.</p>
+  </div>
+  <form class="calc-form" data-calc>
+    <div class="calc-entradas">
+    <label>Tamanho final da peça <span class="entrada"><input name="final" type="number" inputmode="decimal" min="1" step="0.1" value="62" required> mm</span></label>
+    <label>Encolhimento da argila <span class="entrada"><input name="pct" type="number" inputmode="decimal" min="0" max="40" step="0.1" value="12" required> %</span></label>
+    </div>
+    <output name="resultado" class="calc-resultado" aria-live="polite">
+      <span class="calc-numero" data-molde>70,5 mm</span>
+      <span data-detalhe>é o tamanho do molde. A peça encolhe 8,5 mm.</span>
+    </output>
+    <noscript><p>A conta: tamanho do molde = tamanho final ÷ (1 − encolhimento). Com 12%: tamanho final × 1,136.</p></noscript>
+  </form>
+</section>
+<section class="calc-pecas"><h2>Moldes que já vêm na medida</h2><p>Nossos cortadores e moldes já saem 13,6% maiores, para argila de 12%. <a href="/#pecas">Ver as peças</a></p></section>
+</main>
+
+<footer class="rodape">
+  <p class="rodape-314" aria-hidden="true">314</p>
+  <div class="rodape-texto">
+    <p class="rodape-assina">Estúdio314</p>
+    <p>Ferramentas para cerâmica, impressas em 3D em Joinville, SC. Só imprimimos depois do pedido.</p>
+    <ul>
+      <li><a href="https://wa.me/5547991067565?text=Oi!%20Vim%20pelo%20site%20do%20Est%C3%BAdio314.">WhatsApp (47) 99106-7565</a></li>
+      <li><a href="/calculadora-de-encolhimento/">Calculadora de encolhimento da argila</a></li>
+      <li>Retirada em Joinville, SC</li>
+    </ul>
+    <p class="rodape-nota">O 314 é o π: o pi de Pietro, que faz aniversário em 14/3.</p>
+  </div>
+</footer>
+
+<dialog class="carrinho" id="carrinho" aria-labelledby="carrinho-titulo">
+  <div class="carrinho-topo">
+    <h2 id="carrinho-titulo">Seu pedido</h2>
+    <button type="button" class="fechar" data-fechar-carrinho>Fechar</button>
+  </div>
+  <p class="vazio" data-vazio>O carrinho está vazio. <a href="/#pecas">Ver as peças</a></p>
+  <ul class="itens" data-itens></ul>
+  <form class="fechar-pedido" data-fechar-pedido hidden>
+    <p class="total">Total das peças <strong data-total>R$ 0,00</strong></p>
+    <fieldset>
+      <legend>Entrega</legend>
+      <label><input type="radio" name="entrega" value="correios" checked> Correios, para todo o Brasil</label>
+      <label><input type="radio" name="entrega" value="retirada"> Retirar em Joinville</label>
+    </fieldset>
+    <label class="campo" data-campo-cep>CEP para calcular o frete <input name="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" spellcheck="false" placeholder="89200-000"></label>
+    <label class="campo">Seu nome <input name="nome" autocomplete="name"></label>
+    <button class="botao" type="submit">Fechar pedido no WhatsApp</button>
+    <p class="nota">Abre o WhatsApp com o pedido escrito. Frete e pagamento a gente combina por lá. Natal: Correios PAC até 7/12, SEDEX até 14/12, retirada até 22/12.</p>
+  </form>
+</dialog>
+</body>
+</html>

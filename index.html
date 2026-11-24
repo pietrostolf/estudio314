@@ -3,37 +3,181 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Estúdio314 — moldes para cerâmica</title>
-<meta name="description" content="Moldes e cortadores para cerâmica, impressos em 3D. Fale com o Pietro no WhatsApp.">
-<!-- Por enquanto o endereço leva direto ao WhatsApp. Quando o site existir, troque esta página por ele. -->
-<meta http-equiv="refresh" content="1; url=https://wa.me/5547991067565?text=Oi!%20Vi%20teu%20cart%C3%A3o%20e%20quero%20saber%20dos%20moldes.">
-<link rel="icon" href="icone.svg" type="image/svg+xml">
-<style>
-  @font-face { font-family: "Albert Sans"; src: url("fontes/AlbertSans-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
-  @font-face { font-family: "Albert Sans"; src: url("fontes/AlbertSans-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
-  :root { --biscoito: #EDB9A6; --sangue: #3D0A12; }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; height: 100%; }
-  body { background: var(--biscoito); color: var(--sangue); font-family: "Albert Sans", system-ui, sans-serif;
-         display: grid; place-items: center; padding: 24px; }
-  main { width: min(420px, 100%); }
-  img { width: 88px; height: auto; display: block; margin-bottom: 28px; }
-  h1 { font-weight: 600; font-size: 40px; letter-spacing: -0.035em; line-height: 1; margin: 0 0 10px; }
-  p { font-size: 18px; line-height: 1.45; margin: 0 0 28px; }
-  a.botao { display: inline-block; background: var(--sangue); color: var(--biscoito); text-decoration: none;
-            font-weight: 600; font-size: 18px; padding: 16px 24px; }
-  a.botao:focus-visible { outline: 3px solid var(--sangue); outline-offset: 3px; }
-</style>
-<script>
-  location.replace("https://wa.me/5547991067565?text=" + encodeURIComponent("Oi! Vi teu cartão e quero saber dos moldes."));
-</script>
+<title>Estúdio314: carimbos, cortadores e moldes para cerâmica impressos em 3D</title>
+<meta name="description" content="Carimbo personalizado para cerâmica, cortadores de Natal, kit presépio, casinha e gabaritos de alça. Impressos em 3D em Joinville e enviados para todo o Brasil.">
+<link rel="canonical" href="https://estudio314.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Estúdio314">
+<meta property="og:title" content="Estúdio314: carimbos, cortadores e moldes para cerâmica impressos em 3D">
+<meta property="og:description" content="Carimbo personalizado para cerâmica, cortadores de Natal, kit presépio, casinha e gabaritos de alça. Impressos em 3D em Joinville e enviados para todo o Brasil.">
+<meta property="og:url" content="https://estudio314.com.br/">
+<meta property="og:image" content="https://estudio314.com.br/img/produtos/kit-natal-kit7.webp">
+<meta name="theme-color" content="#3D0A12">
+<link rel="icon" href="/icone.svg" type="image/svg+xml">
+<link rel="preload" href="/fontes/AlbertSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/css/loja.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Estúdio314","url":"https://estudio314.com.br","logo":"https://estudio314.com.br/icone.svg","telephone":"+55-47-99106-7565","address":{"@type":"PostalAddress","addressLocality":"Joinville","addressRegion":"SC","addressCountry":"BR"}}</script>
+<script src="/js/catalogo.js" defer></script>
+<script src="/js/loja.js" type="module"></script>
 </head>
-<body>
+<body class="home">
+<a class="pular" href="#pecas">Pular para as peças</a>
+<header class="heroi">
+  <div class="heroi-painel">
+    <div class="barra barra-escura"><a class="marca" href="/" aria-label="Estúdio314, página inicial"><img src="/img/marca/estudio314-horizontal-biscoito.svg" alt="" width="151" height="45"></a><nav aria-label="Principal"><a href="/#pecas">Peças</a><a href="/calculadora-de-encolhimento/">Calculadora</a><a href="/#perguntas">Dúvidas</a></nav><button class="botao-carrinho" type="button" data-abrir-carrinho aria-haspopup="dialog">Carrinho <span data-contagem>(0)</span></button></div>
+  </div>
+  <img class="heroi-objeto" src="/img/produtos/recorte/kit-natal-kit7.webp" alt="Os 7 cortadores e carimbos de Natal, impressos em PLA claro" width="1200" height="1200" fetchpriority="high">
+  <div class="heroi-texto">
+    <h1>Ferramentas para cerâmica, <span>impressas em 3D.</span></h1>
+    <p>Carimbos, cortadores e moldes feitos em Joinville, só depois do seu pedido. Para o Natal, peça até 7/12.</p>
+    <a class="botao" href="#pecas">Ver as 5 peças</a>
+  </div>
+</header>
 <main>
-  <img src="icone.svg" alt="Estúdio314">
-  <h1>Estúdio314</h1>
-  <p>Moldes para cerâmica, impressos em 3D. Abrindo o WhatsApp do Pietro…</p>
-  <a class="botao" href="https://wa.me/5547991067565?text=Oi!%20Vi%20teu%20cart%C3%A3o%20e%20quero%20saber%20dos%20moldes.">Falar no WhatsApp</a>
+<section class="pecas" id="pecas" aria-labelledby="pecas-titulo">
+  <h2 id="pecas-titulo">As peças</h2>
+  <ul class="lista-pecas">
+  <li class="peca">
+    <a class="peca-foto" href="/produto/carimbo-personalizado/" tabindex="-1" aria-hidden="true"><img src="/img/produtos/carimbo-personalizado.webp" alt="" width="1200" height="1200" loading="lazy"></a>
+    <div class="peca-texto">
+      <h3><a href="/produto/carimbo-personalizado/">Carimbo personalizado para cerâmica</a></h3>
+      <p>Tua marca ou assinatura em relevo, para carimbar no barro. Prévia digital antes de imprimir.</p>
+      <p class="peca-preco">a partir de R$ 49,00</p>
+      <ul class="peca-variantes"><li>Até 4 cm <span>R$ 49,00</span></li><li>De 4 a 7,5 cm <span>R$ 69,00</span></li><li>Kit 3 tamanhos (2, 3 e 4 cm) <span>R$ 129,00</span></li></ul>
+      <a class="botao botao-claro" href="/produto/carimbo-personalizado/">Escolher o tamanho<span class="sr"> — Carimbo personalizado para cerâmica</span></a>
+    </div>
+  </li>
+  <li class="peca peca-inversa">
+    <a class="peca-foto" href="/produto/kit-natal/" tabindex="-1" aria-hidden="true"><img src="/img/produtos/kit-natal-kit7.webp" alt="" width="1200" height="1200" loading="lazy"></a>
+    <div class="peca-texto">
+      <h3><a href="/produto/kit-natal/">Cortadores e carimbos de Natal para argila</a></h3>
+      <p>Cada desenho vem com o cortador e o carimbo que marca o relevo por dentro. 7 desenhos.</p>
+      <p class="peca-preco">R$ 19,90 a R$ 89,90</p>
+      <ul class="peca-variantes"><li>1 desenho (cortador + carimbo) <span>R$ 19,90</span></li><li>Kit 4 desenhos <span>R$ 59,90</span></li><li>Kit completo, 7 desenhos <span>R$ 89,90</span></li></ul>
+      <a class="botao botao-claro" href="/produto/kit-natal/">Escolher o tamanho<span class="sr"> — Cortadores e carimbos de Natal para argila</span></a>
+    </div>
+  </li>
+  <li class="peca">
+    <a class="peca-foto" href="/produto/presepio/" tabindex="-1" aria-hidden="true"><img src="/img/produtos/presepio-kit.webp" alt="" width="1200" height="1200" loading="lazy"></a>
+    <div class="peca-texto">
+      <h3><a href="/produto/presepio/">Kit presépio de cerâmica</a></h3><p class="peca-extra">Cortadores + fôrma do telhado.</p>
+      <p>Cortadores de José, Maria, Menino, manjedoura, estrela e estábulo, mais a fôrma do telhado e o molde em papel.</p>
+      <p class="peca-preco">R$ 129,00</p>
+      <ul class="peca-variantes"><li>Kit completo <span>R$ 129,00</span></li></ul>
+      <a class="botao botao-claro" href="/produto/presepio/">Escolher<span class="sr"> — Kit presépio de cerâmica (cortadores + fôrma do telhado)</span></a>
+    </div>
+  </li>
+  <li class="peca peca-inversa">
+    <a class="peca-foto" href="/produto/casinha/" tabindex="-1" aria-hidden="true"><img src="/img/produtos/casinha-duas-aguas.webp" alt="" width="1200" height="1200" loading="lazy"></a>
+    <div class="peca-texto">
+      <h3><a href="/produto/casinha/">Kit casinha de cerâmica</a></h3><p class="peca-extra">Cortadores, carimbos e fôrma do telhado.</p>
+      <p>Casinha de 17 × 10 cm com paredes de 11,5 cm. Escolha telhado de duas ou de quatro águas.</p>
+      <p class="peca-preco">R$ 99,90</p>
+      <ul class="peca-variantes"><li>Telhado de duas águas <span>R$ 99,90</span></li><li>Telhado de quatro águas <span>R$ 99,90</span></li></ul>
+      <a class="botao botao-claro" href="/produto/casinha/">Escolher o tamanho<span class="sr"> — Kit casinha de cerâmica (cortadores, carimbos e fôrma do telhado)</span></a>
+    </div>
+  </li>
+  <li class="peca">
+    <a class="peca-foto" href="/produto/gabaritos-alca/" tabindex="-1" aria-hidden="true"><img src="/img/produtos/gabaritos-alca-kit11.webp" alt="" width="1200" height="1200" loading="lazy"></a>
+    <div class="peca-texto">
+      <h3><a href="/produto/gabaritos-alca/">Gabaritos de alça para xícara e caneca</a></h3>
+      <p>11 perfis de alça para cortar na placa de argila, todos do mesmo tamanho a cada caneca.</p>
+      <p class="peca-preco">R$ 16,90 a R$ 129,00</p>
+      <ul class="peca-variantes"><li>1 gabarito <span>R$ 16,90</span></li><li>Kit 6 gabaritos <span>R$ 79,90</span></li><li>Kit completo, 11 gabaritos <span>R$ 129,00</span></li></ul>
+      <a class="botao botao-claro" href="/produto/gabaritos-alca/">Escolher o tamanho<span class="sr"> — Gabaritos de alça para xícara e caneca</span></a>
+    </div>
+  </li>
+  </ul>
+</section>
+
+<section class="natal" aria-labelledby="natal-titulo">
+  <h2 id="natal-titulo">Para chegar antes do Natal</h2>
+  <div class="natal-datas">
+    <p><strong>7/12</strong> último dia para pedir com envio PAC</p>
+    <p><strong>14/12</strong> último dia com SEDEX</p>
+    <p><strong>22/12</strong> último dia para retirar em Joinville</p>
+  </div>
+  <p>Cada peça é impressa depois do pedido. A produção leva cerca de 3 dias úteis; as datas já contam com isso.</p>
+</section>
+
+<section class="calc" id="calculadora" aria-labelledby="calc-titulo">
+  <div class="calc-texto">
+    <h2 id="calc-titulo">Quanto a argila encolhe?</h2>
+    <p>A argila perde de 5 a 16% do tamanho entre o molde e a peça queimada. Diga o tamanho que a peça precisa ter no fim e o encolhimento da sua argila: a conta mostra o tamanho do molde.</p>
+    <p class="calc-dica">Não sabe o encolhimento? Risque uma linha de 100 mm na placa crua e meça depois da queima: se deu 88 mm, a argila encolhe 12%. Em geral: terracota 5 a 8%, grés 10 a 13%, porcelana 12 a 16%.</p>
+  </div>
+  <form class="calc-form" data-calc>
+    <div class="calc-entradas">
+    <label>Tamanho final da peça <span class="entrada"><input name="final" type="number" inputmode="decimal" min="1" step="0.1" value="62" required> mm</span></label>
+    <label>Encolhimento da argila <span class="entrada"><input name="pct" type="number" inputmode="decimal" min="0" max="40" step="0.1" value="12" required> %</span></label>
+    </div>
+    <output name="resultado" class="calc-resultado" aria-live="polite">
+      <span class="calc-numero" data-molde>70,5 mm</span>
+      <span data-detalhe>é o tamanho do molde. A peça encolhe 8,5 mm.</span>
+    </output>
+    <noscript><p>A conta: tamanho do molde = tamanho final ÷ (1 − encolhimento). Com 12%: tamanho final × 1,136.</p></noscript>
+  </form>
+</section>
+<section class="passos" aria-labelledby="passos-titulo">
+  <h2 id="passos-titulo">Do pedido ao barro</h2>
+  <ol class="passos-lista">
+    <li class="passo passo-1"><div class="passo-tile"><img src="/img/produtos/recorte/kit-natal-par.webp" alt="" width="1200" height="1200" loading="lazy"></div><h3>Você escolhe</h3><p>Monte o pedido no carrinho e mande pelo WhatsApp. Frete e pagamento combinamos por lá.</p></li>
+    <li class="passo passo-2"><div class="passo-tile"><img src="/img/produtos/recorte/kit-natal-kit7.webp" alt="" width="1200" height="1200" loading="lazy"></div><h3>Imprimimos o seu</h3><p>A impressora só liga depois do pedido. Carimbo personalizado ganha prévia antes.</p></li>
+    <li class="passo passo-3"><div class="passo-tile"><img src="/img/produtos/kit-natal-resultado-mesa.webp" alt="" width="1200" height="1200" loading="lazy"></div><h3>Você marca o barro</h3><p>Chega pelos Correios ou você retira em Joinville. Lave com água fria e use de novo.</p></li>
+  </ol>
+</section>
+<section class="em-breve" aria-labelledby="eb-titulo">
+  <h2 id="eb-titulo">Em breve</h2>
+  <p>Desenhos nossos, em produção. Quer um deles antes? <a href="https://wa.me/5547991067565?text=Oi!%20Quero%20saber%20quando%20sai%20um%20dos%20itens%20em%20breve%20do%20Est%C3%BAdio314.">Avise no WhatsApp</a>.</p>
+  <ul class="eb-lista"><li><span class="eb-nome">Kit 10 carimbos de flores e folhas</span> <span class="eb-preco">cerca de R$ 29,90</span></li><li><span class="eb-nome">Kit carimbos alfabeto e números</span> <span class="eb-preco">cerca de R$ 59,90</span></li><li><span class="eb-nome">Molde de copo e caneca</span> <span class="eb-preco">cerca de R$ 49,90</span></li><li><span class="eb-nome">Compasso de corte</span> <span class="eb-preco">cerca de R$ 34,90</span></li><li><span class="eb-nome">Traçador de altura</span> <span class="eb-preco">cerca de R$ 44,90</span></li></ul>
+</section>
+<section class="perguntas" id="perguntas" aria-labelledby="perguntas-titulo">
+  <h2 id="perguntas-titulo">Perguntas de quem mexe com barro</h2>
+  <div class="perguntas-lista">
+    <details><summary>Como faço o pedido?</summary><p>Escolha as peças, abra o carrinho e toque em “Fechar pedido no WhatsApp”. A mensagem vai pronta com os itens e o total; respondemos com o frete e a forma de pagamento.</p></details>
+    <details><summary>Quanto tempo demora?</summary><p>Cada peça é impressa depois do pedido: cerca de 3 dias úteis para produzir, mais o tempo dos Correios. Para o Natal, peça até 7/12 (PAC) ou 14/12 (SEDEX).</p></details>
+    <details><summary>Serve para argila e cerâmica fria?</summary><p>Serve para argila, cerâmica fria, biscuit e massinha. As peças são de PLA: lave com água fria e sabão neutro. Não vão ao forno nem à lava-louças, porque o PLA amolece perto de 55 °C.</p></details>
+    <details><summary>Por que o molde é maior que a peça?</summary><p>A argila encolhe ao secar e queimar. Nossos moldes já vêm 13,6% maiores, para a retração de 12% da maioria das argilas. Para outra argila, use a <a href="/calculadora-de-encolhimento/">calculadora</a>.</p></details>
+    <details><summary>Como mando o desenho do carimbo?</summary><p>Depois do pedido, mande a logo, a assinatura ou o desenho pelo WhatsApp. Mostramos a prévia espelhada e a marca no barro antes de imprimir. O traço precisa ter pelo menos 0,4 mm.</p></details>
+    <details><summary>Entregam em todo o Brasil?</summary><p>Sim, pelos Correios. Em Joinville você também pode retirar a encomenda.</p></details>
+  </div>
+</section>
 </main>
+
+<footer class="rodape">
+  <p class="rodape-314" aria-hidden="true">314</p>
+  <div class="rodape-texto">
+    <p class="rodape-assina">Estúdio314</p>
+    <p>Ferramentas para cerâmica, impressas em 3D em Joinville, SC. Só imprimimos depois do pedido.</p>
+    <ul>
+      <li><a href="https://wa.me/5547991067565?text=Oi!%20Vim%20pelo%20site%20do%20Est%C3%BAdio314.">WhatsApp (47) 99106-7565</a></li>
+      <li><a href="/calculadora-de-encolhimento/">Calculadora de encolhimento da argila</a></li>
+      <li>Retirada em Joinville, SC</li>
+    </ul>
+    <p class="rodape-nota">O 314 é o π: o pi de Pietro, que faz aniversário em 14/3.</p>
+  </div>
+</footer>
+
+<dialog class="carrinho" id="carrinho" aria-labelledby="carrinho-titulo">
+  <div class="carrinho-topo">
+    <h2 id="carrinho-titulo">Seu pedido</h2>
+    <button type="button" class="fechar" data-fechar-carrinho>Fechar</button>
+  </div>
+  <p class="vazio" data-vazio>O carrinho está vazio. <a href="/#pecas">Ver as peças</a></p>
+  <ul class="itens" data-itens></ul>
+  <form class="fechar-pedido" data-fechar-pedido hidden>
+    <p class="total">Total das peças <strong data-total>R$ 0,00</strong></p>
+    <fieldset>
+      <legend>Entrega</legend>
+      <label><input type="radio" name="entrega" value="correios" checked> Correios, para todo o Brasil</label>
+      <label><input type="radio" name="entrega" value="retirada"> Retirar em Joinville</label>
+    </fieldset>
+    <label class="campo" data-campo-cep>CEP para calcular o frete <input name="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" spellcheck="false" placeholder="89200-000"></label>
+    <label class="campo">Seu nome <input name="nome" autocomplete="name"></label>
+    <button class="botao" type="submit">Fechar pedido no WhatsApp</button>
+    <p class="nota">Abre o WhatsApp com o pedido escrito. Frete e pagamento a gente combina por lá. Natal: Correios PAC até 7/12, SEDEX até 14/12, retirada até 22/12.</p>
+  </form>
+</dialog>
 </body>
 </html>

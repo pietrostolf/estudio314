@@ -1,0 +1,7 @@
+# Fica só no PC: o catálogo tem notas internas (preços a confirmar, vendas de concorrentes); o build publica só o que é público em js/catalogo.js
+catalogo.json
+# Renders brutos, STLs e PNGs originais (o site usa os .webp)
+img/produtos/src/
+img/produtos/*.png
+img/produtos/*.jpg
+.taste-skill/
