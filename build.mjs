@@ -7,7 +7,7 @@ const cat = JSON.parse(readFileSync(new URL("./catalogo.json", import.meta.url),
 const SITE = "https://estudio314.com.br";
 const WHATS = "5547991067565";
 
-// Prazos do Natal (a confirmar com o Pietro). Aparecem na home, nas páginas de Natal e no carrinho.
+// Prazos do Natal (confirmados pelo Pietro em 24/11/2026). Aparecem na home, nas páginas de Natal e no carrinho.
 const NATAL = { pac: "7/12", sedex: "14/12", retirada: "22/12" };
 // Carimbo personalizado: 3 dias úteis antes, por causa da prévia (regra do Pietro, 24/11/2026).
 const NATAL_CARIMBO = { pac: "2/12", sedex: "9/12", retirada: "17/12" };
