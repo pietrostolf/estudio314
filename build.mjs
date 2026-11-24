@@ -6,6 +6,9 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 const cat = JSON.parse(readFileSync(new URL("./catalogo.json", import.meta.url), "utf8"));
 const SITE = "https://estudio314.com.br";
 const WHATS = "5547991067565";
+// Perfis da marca: vão no sameAs do JSON-LD e no rodapé (o Google confia mais quando a página também mostra os links).
+const INSTAGRAM = "https://www.instagram.com/estu.dio314/";
+const PINTEREST = "https://br.pinterest.com/estudio314ceramica/";
 
 // Prazos do Natal (confirmados pelo Pietro em 24/11/2026). Aparecem na home, nas páginas de Natal e no carrinho.
 const NATAL = { pac: "7/12", sedex: "14/12", retirada: "22/12" };
@@ -143,6 +146,8 @@ const RODAPE = `
     <p>Ferramentas para cerâmica, impressas em 3D em Joinville, SC. Só imprimimos depois do pedido.</p>
     <ul>
       <li><a href="${wa("Oi! Vim pelo site do Estúdio314.")}">WhatsApp (47) 99106-7565</a></li>
+      <li><a href="${INSTAGRAM}">Instagram @estu.dio314</a></li>
+      <li><a href="${PINTEREST}">Pinterest</a></li>
       <li><a href="/calculadora-de-encolhimento/">Calculadora de encolhimento da argila</a></li>
       <li>Retirada em Joinville, SC</li>
     </ul>
@@ -228,7 +233,7 @@ const home = `${cabeca({
   descricao: "Carimbos personalizados, cortadores de argila, moldes e gabaritos impressos em 3D em Joinville/SC. Feitos sob demanda para ceramistas e ateliês.",
   caminho: "/",
   imagem: OG("kit-natal-kit7"),
-  jsonld: { "@context": "https://schema.org", "@type": "Organization", "@id": `${SITE}/#negocio`, name: "Estúdio314", url: SITE, logo: `${SITE}/icone.svg`, telephone: "+55-47-99106-7565", address: { "@type": "PostalAddress", addressLocality: "Joinville", addressRegion: "SC", addressCountry: "BR" } },
+  jsonld: { "@context": "https://schema.org", "@type": "Organization", "@id": `${SITE}/#negocio`, name: "Estúdio314", url: SITE, logo: `${SITE}/icone.svg`, telephone: "+55-47-99106-7565", sameAs: [INSTAGRAM, PINTEREST], address: { "@type": "PostalAddress", addressLocality: "Joinville", addressRegion: "SC", addressCountry: "BR" } },
 })}
 <body class="home">
 <a class="pular" href="#pecas">Pular para as peças</a>
