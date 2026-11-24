@@ -215,12 +215,12 @@ const perguntas = [
 const emBreve = cat.em_breve.map((e) => `<li><span class="eb-nome">${esc(e.nome)}</span> <span class="eb-preco">cerca de ${brl(e.preco_previsto)}</span></li>`).join("");
 
 const home = `${cabeca({
-  // TODO-SEO: trocar título e descrição quando SEO/palavras_chave.md existir
-  titulo: "Estúdio314: carimbos, cortadores e moldes para cerâmica impressos em 3D",
-  descricao: "Carimbo personalizado para cerâmica, cortadores de Natal, kit presépio, casinha e gabaritos de alça. Impressos em 3D em Joinville e enviados para todo o Brasil.",
+  // Textos do SEO (SEO/palavras_chave.md, 24/11/2026)
+  titulo: "Estúdio314: ferramentas para cerâmica impressas em 3D",
+  descricao: "Carimbos personalizados, cortadores de argila, moldes e gabaritos impressos em 3D em Joinville/SC. Feitos sob demanda para ceramistas e ateliês.",
   caminho: "/",
   imagem: IMG("kit-natal-kit7"),
-  jsonld: { "@context": "https://schema.org", "@type": "Organization", name: "Estúdio314", url: SITE, logo: `${SITE}/icone.svg`, telephone: "+55-47-99106-7565", address: { "@type": "PostalAddress", addressLocality: "Joinville", addressRegion: "SC", addressCountry: "BR" } },
+  jsonld: { "@context": "https://schema.org", "@type": "Organization", "@id": `${SITE}/#negocio`, name: "Estúdio314", url: SITE, logo: `${SITE}/icone.svg`, telephone: "+55-47-99106-7565", address: { "@type": "PostalAddress", addressLocality: "Joinville", addressRegion: "SC", addressCountry: "BR" } },
 })}
 <body class="home">
 <a class="pular" href="#pecas">Pular para as peças</a>
@@ -271,12 +271,13 @@ const paginaProduto = (p) => {
   const jsonld = {
     "@context": "https://schema.org", "@type": "Product", name: p.nome, description: p.descricao,
     image: f.fotos.map(([n]) => SITE + IMG(n)), brand: { "@type": "Brand", name: "Estúdio314" },
-    offers: { "@type": "AggregateOffer", priceCurrency: "BRL", lowPrice: Math.min(...precos(p)).toFixed(2), highPrice: Math.max(...precos(p)).toFixed(2), offerCount: p.variantes.length, availability: "https://schema.org/MadeToOrder", url: `${SITE}/produto/${p.id}/` },
+    // Uma Offer por variante (SEO/schema.md). MadeToOrder: só imprimimos depois do pedido.
+    offers: p.variantes.map((v) => ({ "@type": "Offer", name: v.nome, sku: `${p.id}-${v.id}`, price: v.preco.toFixed(2), priceCurrency: "BRL", availability: "https://schema.org/MadeToOrder", itemCondition: "https://schema.org/NewCondition", url: `${SITE}/produto/${p.id}/`, seller: { "@id": `${SITE}/#negocio` } })),
   };
   return `${cabeca({
-    // TODO-SEO: título e descrição do catálogo; trocar pelos do SEO quando existirem
-    titulo: `${p.nome} | Estúdio314`,
-    descricao: `${p.resumo} ${faixa(p).replace(/^./, (c) => c.toUpperCase())}. Impresso em 3D em Joinville, enviado para todo o Brasil.`,
+    // seo_titulo/seo_descricao vêm do SEO (catalogo.json); sem eles, o texto antigo.
+    titulo: p.seo_titulo || `${p.nome} | Estúdio314`,
+    descricao: p.seo_descricao || `${p.resumo} ${faixa(p).replace(/^./, (c) => c.toUpperCase())}. Impresso em 3D em Joinville, enviado para todo o Brasil.`,
     caminho: `/produto/${p.id}/`, imagem: IMG(f.fotos[0][0]), jsonld,
   })}
 <body class="pagina-produto">
