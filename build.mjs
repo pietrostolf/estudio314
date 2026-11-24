@@ -54,6 +54,8 @@ const FOTOS = {
   },
 };
 const IMG = (n) => `/img/produtos/${n}.webp`;
+// Prévia dos links (WhatsApp, Facebook): JPG 1200 x 630 gerado por og_imagens.py.
+const OG = (n) => `/img/og/${n}.jpg`;
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const brl = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -92,6 +94,9 @@ const cabeca = ({ titulo, descricao, caminho, imagem, jsonld }) => `<!doctype ht
 <meta property="og:description" content="${esc(descricao)}">
 <meta property="og:url" content="${SITE}${caminho}">
 <meta property="og:image" content="${SITE}${imagem}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="theme-color" content="#3D0A12">
 <link rel="icon" href="/icone.svg" type="image/svg+xml">
 <link rel="preload" href="/fontes/AlbertSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
@@ -219,7 +224,7 @@ const home = `${cabeca({
   titulo: "Estúdio314: ferramentas para cerâmica impressas em 3D",
   descricao: "Carimbos personalizados, cortadores de argila, moldes e gabaritos impressos em 3D em Joinville/SC. Feitos sob demanda para ceramistas e ateliês.",
   caminho: "/",
-  imagem: IMG("kit-natal-kit7"),
+  imagem: OG("kit-natal-kit7"),
   jsonld: { "@context": "https://schema.org", "@type": "Organization", "@id": `${SITE}/#negocio`, name: "Estúdio314", url: SITE, logo: `${SITE}/icone.svg`, telephone: "+55-47-99106-7565", address: { "@type": "PostalAddress", addressLocality: "Joinville", addressRegion: "SC", addressCountry: "BR" } },
 })}
 <body class="home">
@@ -278,7 +283,7 @@ const paginaProduto = (p) => {
     // seo_titulo/seo_descricao vêm do SEO (catalogo.json); sem eles, o texto antigo.
     titulo: p.seo_titulo || `${p.nome} | Estúdio314`,
     descricao: p.seo_descricao || `${p.resumo} ${faixa(p).replace(/^./, (c) => c.toUpperCase())}. Impresso em 3D em Joinville, enviado para todo o Brasil.`,
-    caminho: `/produto/${p.id}/`, imagem: IMG(f.fotos[0][0]), jsonld,
+    caminho: `/produto/${p.id}/`, imagem: OG(f.fotos[0][0]), jsonld,
   })}
 <body class="pagina-produto">
 <a class="pular" href="#conteudo">Pular para o produto</a>
@@ -321,7 +326,7 @@ ${RODAPE}`;
 const paginaCalc = `${cabeca({
   titulo: "Calculadora de encolhimento da argila | Estúdio314",
   descricao: "Calcule o tamanho do molde a partir do tamanho final da peça e do encolhimento da sua argila. Grátis, direto no navegador.",
-  caminho: "/calculadora-de-encolhimento/", imagem: IMG("kit-natal-resultado-mesa"),
+  caminho: "/calculadora-de-encolhimento/", imagem: OG("kit-natal-resultado-mesa"),
   jsonld: { "@context": "https://schema.org", "@type": "WebApplication", name: "Calculadora de encolhimento da argila", applicationCategory: "UtilitiesApplication", operatingSystem: "Qualquer navegador", offers: { "@type": "Offer", price: "0", priceCurrency: "BRL" }, url: `${SITE}/calculadora-de-encolhimento/` },
 })}
 <body class="pagina-calc">
