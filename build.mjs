@@ -272,16 +272,21 @@ ${calculadora()}
 ${RODAPE}`;
 
 // ---------- produto ----------
+// Tamanho (schema.org/size) quando o nome da variante não serve.
+const TAMANHO = { "kit-3": "2, 3 e 4 cm (kit)" };
 const paginaProduto = (p) => {
   const f = FOTOS[p.id];
   const prazo = p.prazo_dias_uteis || PRAZO_PADRAO;
   const opcoes = Object.entries(p.opcoes || {});
-  const jsonld = {
-    "@context": "https://schema.org", "@type": "Product", name: p.nome, description: p.descricao,
-    image: f.fotos.map(([n]) => SITE + IMG(n)), brand: { "@type": "Brand", name: "Estúdio314" },
-    // Uma Offer por variante (SEO/schema.md). MadeToOrder: só imprimimos depois do pedido.
-    offers: p.variantes.map((v) => ({ "@type": "Offer", name: v.nome, sku: `${p.id}-${v.id}`, price: v.preco.toFixed(2), priceCurrency: "BRL", availability: "https://schema.org/MadeToOrder", itemCondition: "https://schema.org/NewCondition", url: `${SITE}/produto/${p.id}/`, seller: { "@type": "Organization", "@id": `${SITE}/#negocio`, name: "Estúdio314" } })),
-  };
+  const url = `${SITE}/produto/${p.id}/`;
+  const oferta = (v) => ({ "@type": "Offer", url, price: v.preco.toFixed(2), priceCurrency: "BRL", availability: "https://schema.org/MadeToOrder", itemCondition: "https://schema.org/NewCondition", seller: { "@type": "Organization", "@id": `${SITE}/#negocio`, name: "Estúdio314" } });
+  const base = { "@context": "https://schema.org", "@id": `${url}#produto`, name: p.nome, description: p.descricao, url, image: f.fotos.map(([n]) => SITE + IMG(n)), brand: { "@type": "Brand", name: "Estúdio314" } };
+  // SEO/schema.md, regra 7: o carimbo (preço pelo tamanho) é um ProductGroup com um Product por tamanho;
+  // os outros, um Product com uma Offer por opção. MadeToOrder: só imprimimos depois do pedido.
+  const jsonld = p.personalizado
+    ? { ...base, "@type": "ProductGroup", material: "PLA", productGroupID: p.id, variesBy: ["https://schema.org/size"],
+        hasVariant: p.variantes.map((v) => ({ "@type": "Product", sku: `${p.id}-${v.id}`, name: `${p.nome}, ${v.nome[0].toLowerCase()}${v.nome.slice(1)}`, size: TAMANHO[v.id] || v.nome, image: SITE + IMG(f.fotos[0][0]), offers: oferta(v) })) }
+    : { ...base, "@type": "Product", offers: p.variantes.map((v) => ({ ...oferta(v), name: v.nome, sku: `${p.id}-${v.id}` })) };
   return `${cabeca({
     // seo_titulo/seo_descricao vêm do SEO (catalogo.json); sem eles, o texto antigo.
     titulo: p.seo_titulo || `${p.nome} | Estúdio314`,
