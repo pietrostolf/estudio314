@@ -78,7 +78,11 @@ function iniciar() {
 
   document.querySelectorAll("[data-abrir-carrinho]").forEach((b) => (b.onclick = () => dlg.showModal()));
   dlg?.querySelector("[data-fechar-carrinho]").addEventListener("click", () => dlg.close());
-  dlg?.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+  // Fecha só no fundo escuro: o painel tem 100dvh e um toque no vazio dele também tem target === dlg.
+  dlg?.addEventListener("click", (e) => {
+    const r = dlg.getBoundingClientRect();
+    if (e.target === dlg && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) dlg.close();
+  });
 
   const fp = dlg?.querySelector("[data-fechar-pedido]");
   fp?.addEventListener("change", () => { fp.querySelector("[data-campo-cep]").hidden = fp.entrega.value === "retirada"; });
@@ -105,8 +109,11 @@ function iniciar() {
     };
     pf.addEventListener("input", atual);
     pf.addEventListener("change", (e) => {
-      if (e.target.name === "variante" && p.fotoVariante[e.target.value]) mostra(p.fotoVariante[e.target.value]);
+      const src = e.target.name === "variante" && p.fotoVariante[e.target.value];
+      if (src) mostra(src, document.querySelector(`[data-foto="${src}"]`)?.dataset.alt);
+      if (e.target.name === "qtd") pf.qtd.value = atual().q;
     });
+    atual(); // preço certo já ao abrir (e com o formulário que o Voltar do navegador restaura)
     document.querySelectorAll("[data-foto]").forEach((b) => (b.onclick = () => mostra(b.dataset.foto, b.dataset.alt)));
     pf.addEventListener("submit", (e) => {
       e.preventDefault();

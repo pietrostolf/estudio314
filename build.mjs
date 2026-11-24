@@ -232,7 +232,7 @@ const home = `${cabeca({
   <div class="heroi-texto">
     <h1>Ferramentas para cerâmica, <span>impressas em 3D.</span></h1>
     <p>Carimbos, cortadores e moldes feitos em Joinville, só depois do seu pedido. Para o Natal, peça até ${NATAL.pac}.</p>
-    <a class="botao" href="#pecas">Ver as 5 peças</a>
+    <a class="botao" href="#pecas">Ver as ${cat.produtos.length} peças</a>
   </div>
 </header>
 <main>
@@ -300,7 +300,7 @@ ${cabecalhoSimples}
       <label class="campo">Observação <span class="campo-dica">${p.id === "kit-natal" ? "quais desenhos você quer" : p.personalizado ? "o que vai no carimbo (o desenho você manda no WhatsApp)" : "opcional"}</span><textarea name="obs" rows="2" maxlength="300"></textarea></label>
       <div class="comprar">
         <label class="qtd">Quantidade <input name="qtd" type="number" min="1" max="20" value="1" inputmode="numeric"></label>
-        <p class="preco-atual" aria-live="polite" data-preco>${brl(p.variantes[0].preco)}</p>
+        <p class="preco-atual" aria-live="polite" data-preco>${p.personalizado ? "a partir de " : ""}${brl(p.variantes[0].preco)}</p>
       </div>
       <button class="botao" type="submit">Pôr no carrinho</button>
       <noscript><p><a href="${wa(`Oi! Quero o ${p.nome}.`)}">Pedir pelo WhatsApp</a></p></noscript>
