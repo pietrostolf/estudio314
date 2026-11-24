@@ -308,7 +308,7 @@ ${cabecalhoSimples}
     <div class="produto-descricao">
       <h2>Como é</h2>
       <p>${esc(p.descricao)}</p>
-      <p>Produção: ${prazo} dias úteis depois do pedido, mais o frete. ${p.natal ? `Para o Natal: Correios PAC até ${NATAL.pac}, SEDEX até ${NATAL.sedex}, retirada em Joinville até ${NATAL.retirada}.` : ""}${p.personalizado ? `Para o Natal, por causa da prévia: Correios PAC até ${NATAL_CARIMBO.pac}, SEDEX até ${NATAL_CARIMBO.sedex}, retirada em Joinville até ${NATAL_CARIMBO.retirada}.` : ""}</p>
+      <p>Produção: ${prazo} dias úteis depois ${p.personalizado ? "que você aprova a prévia" : "do pedido"}, mais o frete. ${p.natal ? `Para o Natal: Correios PAC até ${NATAL.pac}, SEDEX até ${NATAL.sedex}, retirada em Joinville até ${NATAL.retirada}.` : ""}${p.personalizado ? `Para o Natal, por causa da prévia: Correios PAC até ${NATAL_CARIMBO.pac}, SEDEX até ${NATAL_CARIMBO.sedex}, retirada em Joinville até ${NATAL_CARIMBO.retirada}.` : ""}</p>
       ${p.personalizado ? "<p>Depois do pedido, mande a logo ou o desenho pelo WhatsApp. O preço final depende do tamanho do desenho e vai na prévia.</p>" : ""}
     </div>
   </div>
