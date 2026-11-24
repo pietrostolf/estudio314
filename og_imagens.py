@@ -18,10 +18,13 @@ for nome in FOTOS:
     # Foto inteira em 630 de altura no meio; cada lateral repete a coluna da borda (o fundo do render é liso,
     # então o degradê de luz continua sem emenda).
     foto = im.resize((round(im.width * H / im.height), H), Image.Resampling.LANCZOS)
+    if foto.width >= W:  # foto mais larga que 1200:630: corta no centro
+        foto = foto.crop(((foto.width - W) // 2, 0, (foto.width - W) // 2 + W, H))
     x = (W - foto.width) // 2
     fundo = Image.new("RGB", (W, H))
-    fundo.paste(foto.crop((0, 0, 4, H)).resize((x, H)), (0, 0))
-    fundo.paste(foto.crop((foto.width - 4, 0, foto.width, H)).resize((W - x - foto.width, H)), (x + foto.width, 0))
+    if x > 0:
+        fundo.paste(foto.crop((0, 0, 4, H)).resize((x, H)), (0, 0))
+        fundo.paste(foto.crop((foto.width - 4, 0, foto.width, H)).resize((W - x - foto.width, H)), (x + foto.width, 0))
     fundo.paste(foto, (x, 0))
     out = SAIDA / f"{nome}.jpg"
     fundo.save(out, "JPEG", quality=85, optimize=True, progressive=True)

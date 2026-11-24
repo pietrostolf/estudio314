@@ -1,7 +1,7 @@
 // Gera as páginas do site a partir de catalogo.json.
 // Uso: node build.mjs   (rode de novo sempre que mudar catalogo.json)
 // Saída: index.html, produto/<id>/index.html, calculadora-de-encolhimento/index.html, js/catalogo.js
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 
 const cat = JSON.parse(readFileSync(new URL("./catalogo.json", import.meta.url), "utf8"));
 const SITE = "https://estudio314.com.br";
@@ -55,7 +55,10 @@ const FOTOS = {
 };
 const IMG = (n) => `/img/produtos/${n}.webp`;
 // Prévia dos links (WhatsApp, Facebook): JPG 1200 x 630 gerado por og_imagens.py.
-const OG = (n) => `/img/og/${n}.jpg`;
+const OG = (n) => {
+  if (!existsSync(new URL(`./img/og/${n}.jpg`, import.meta.url))) throw new Error(`Falta img/og/${n}.jpg: ponha "${n}" em og_imagens.py e rode o script.`);
+  return `/img/og/${n}.jpg`;
+};
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const brl = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -277,7 +280,7 @@ const paginaProduto = (p) => {
     "@context": "https://schema.org", "@type": "Product", name: p.nome, description: p.descricao,
     image: f.fotos.map(([n]) => SITE + IMG(n)), brand: { "@type": "Brand", name: "Estúdio314" },
     // Uma Offer por variante (SEO/schema.md). MadeToOrder: só imprimimos depois do pedido.
-    offers: p.variantes.map((v) => ({ "@type": "Offer", name: v.nome, sku: `${p.id}-${v.id}`, price: v.preco.toFixed(2), priceCurrency: "BRL", availability: "https://schema.org/MadeToOrder", itemCondition: "https://schema.org/NewCondition", url: `${SITE}/produto/${p.id}/`, seller: { "@id": `${SITE}/#negocio` } })),
+    offers: p.variantes.map((v) => ({ "@type": "Offer", name: v.nome, sku: `${p.id}-${v.id}`, price: v.preco.toFixed(2), priceCurrency: "BRL", availability: "https://schema.org/MadeToOrder", itemCondition: "https://schema.org/NewCondition", url: `${SITE}/produto/${p.id}/`, seller: { "@type": "Organization", "@id": `${SITE}/#negocio`, name: "Estúdio314" } })),
   };
   return `${cabeca({
     // seo_titulo/seo_descricao vêm do SEO (catalogo.json); sem eles, o texto antigo.
