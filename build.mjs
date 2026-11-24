@@ -279,10 +279,10 @@ const paginaProduto = (p) => {
   const prazo = p.prazo_dias_uteis || PRAZO_PADRAO;
   const opcoes = Object.entries(p.opcoes || {});
   const url = `${SITE}/produto/${p.id}/`;
-  const oferta = (v) => ({ "@type": "Offer", url, price: v.preco.toFixed(2), priceCurrency: "BRL", availability: "https://schema.org/MadeToOrder", itemCondition: "https://schema.org/NewCondition", seller: { "@type": "Organization", "@id": `${SITE}/#negocio`, name: "Estúdio314" } });
+  const oferta = (v) => ({ "@type": "Offer", url, price: v.preco.toFixed(2), priceCurrency: "BRL", availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition", seller: { "@type": "Organization", "@id": `${SITE}/#negocio`, name: "Estúdio314" } });
   const base = { "@context": "https://schema.org", "@id": `${url}#produto`, name: p.nome, description: p.descricao, url, image: f.fotos.map(([n]) => SITE + IMG(n)), brand: { "@type": "Brand", name: "Estúdio314" } };
   // SEO/schema.md, regra 7: o carimbo (preço pelo tamanho) é um ProductGroup com um Product por tamanho;
-  // os outros, um Product com uma Offer por opção. MadeToOrder: só imprimimos depois do pedido.
+  // os outros, um Product com uma Offer por opção. InStock: o teste do Google recusa MadeToOrder na listagem do comerciante.
   const jsonld = p.personalizado
     ? { ...base, "@type": "ProductGroup", material: "PLA", productGroupID: p.id, variesBy: ["https://schema.org/size"],
         hasVariant: p.variantes.map((v) => ({ "@type": "Product", sku: `${p.id}-${v.id}`, name: `${p.nome}, ${v.nome[0].toLowerCase()}${v.nome.slice(1)}`, size: TAMANHO[v.id] || v.nome, image: SITE + IMG(f.fotos[0][0]), offers: oferta(v) })) }
