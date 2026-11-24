@@ -11,7 +11,7 @@ const WHATS = "5547991067565";
 const NATAL = { pac: "7/12", sedex: "14/12", retirada: "22/12" };
 // Carimbo personalizado: 3 dias úteis antes, por causa da prévia (regra do Pietro, 24/11/2026).
 const NATAL_CARIMBO = { pac: "2/12", sedex: "9/12", retirada: "17/12" };
-const PRAZO_PADRAO = 3; // dias úteis para produzir quando o produto não diz
+const PRAZO_PADRAO = 3; // dias úteis para produzir quando o produto não diz (Pietro, 24/11/2026: 3 para todos)
 
 // Fotos de cada produto (o catálogo não tem): principal, extras e a foto de cada variante.
 const FOTOS = {
