@@ -147,7 +147,7 @@ const RODAPE = `
     <ul>
       <li><a href="${wa("Oi! Vim pelo site do Estúdio314.")}">WhatsApp (47) 99106-7565</a></li>
       <li><a href="${INSTAGRAM}">Instagram @estu.dio314</a></li>
-      <li><a href="${PINTEREST}">Pinterest</a></li>
+      <li><a href="${PINTEREST}">Pinterest do Estúdio314</a></li>
       <li><a href="/calculadora-de-encolhimento/">Calculadora de encolhimento da argila</a></li>
       <li>Retirada em Joinville, SC</li>
     </ul>

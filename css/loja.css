@@ -187,7 +187,9 @@ section > h2 { font-size: var(--t-titulo); max-width: 16ch; }
   -webkit-mask: var(--camadas) 0 0 / 100% 0.085em repeat; mask: var(--camadas) 0 0 / 100% 0.085em repeat; }
 .rodape-texto { display: grid; gap: 20px; max-width: 60rem; }
 .rodape-assina { font-size: var(--t-sub); font-weight: 600; letter-spacing: -0.03em; }
-.rodape ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; font-size: var(--t-fato); }
+.rodape ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; font-size: var(--t-fato); }
+.rodape ul li { min-height: 44px; display: flex; align-items: center; }
+.rodape ul a { display: inline-flex; align-items: center; min-height: 44px; }
 .rodape-nota { font-size: var(--t-mini); color: var(--surface); }
 
 /* ---------- página de produto ---------- */
